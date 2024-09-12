@@ -76,8 +76,9 @@ public class LoginPage extends BasePage {
 
         }
 
-        public void clickbtnYalla () {
+        public LogoutPage clickbtnYalla () {
         btnYalla.click();
+        return new LogoutPage(driver);
         }
 
     }

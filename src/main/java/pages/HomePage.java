@@ -17,8 +17,20 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[text()='Sign up']")
     WebElement linkSignUp;
 
+    @FindBy(xpath = "//a[text()='Log in']")
+    WebElement logIn;
+
+
     public LoginPage clickSignUpLink() {
         linkSignUp.click();
         return new LoginPage(driver);
     }
+
+
+
+    public LoginPasswordEmail clickLoginPasswordEmail() {
+        logIn.click();
+        return new LoginPasswordEmail(driver);
+    }
+
 }
