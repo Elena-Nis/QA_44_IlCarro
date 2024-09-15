@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,72 +14,95 @@ public class LoginPage extends BasePage {
                 new AjaxElementLocatorFactory(driver, 10), this);
     }
 
-    @FindBy(xpath = "//input[@id='name']")
-    WebElement inputName;
-
-    @FindBy(xpath = "//input[@id='lastName']")
-    WebElement inputLastName;
-
     @FindBy(xpath = "//input[@id='email']")
     WebElement inputEmail;
 
     @FindBy(xpath = "//input[@id='password']")
     WebElement inputPassword;
 
-   @FindBy(xpath = "//label[@for='terms-of-use']")
-   WebElement inputCheckBox;
-
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnYalla;
 
-   // @FindBy(xpath = "//input[@formcontrolname='termsOfUse']")
-   // WebElement inputCheckBox;
+    @FindBy(xpath = "//h2[@class='message']")
+    WebElement textPopUp_Login;
 
-    //@FindBy(xpath = "//label[contains(text(), ' I gree to the ')]")
-    //WebElement inputCheckBox;
+    @FindBy(xpath = "//div[contains(text(), 'not look like email')]")
+    WebElement errorMessage;
 
-  //  @FindBy(xpath = "//label[contains(@class, 'checkbox-label') and contains(@class, 'terms-label')]")
-  //  WebElement inputCheckBox;
+    @FindBy(xpath = "//div[contains(text(), 'Email is required')]")
+    WebElement errorMessage1;
 
-    public LoginPage typeName(String name) {
-        if(inputName.isDisplayed()) {
-            inputName.sendKeys(name);
-        }
-        return this;
-    }
-
-    public LoginPage typeLastName(String lastName) {
-        if(inputLastName.isDisplayed()) {
-            inputLastName.sendKeys(lastName);
-        }
-        return this;
-    }
+    @FindBy(xpath = "//div[contains(text(), 'Password is required')]")
+    WebElement errorMessage2;
 
     public LoginPage typeEmail(String email) {
         if(inputEmail.isDisplayed()) {
+            inputEmail.clear();
             inputEmail.sendKeys(email);
         }
         return this;
     }
 
-    public LoginPage typePassword(String password) {
-        if(inputEmail.isDisplayed()) {
+    public  LoginPage typePassword(String password) {
+        if(inputPassword.isDisplayed()) {
             inputPassword.sendKeys(password);
         }
         return this;
     }
 
-    public void clickCheckBox () {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();",inputCheckBox);
-       // inputCheckBox.click();
-
-        }
-
-        public LogoutPage clickbtnYalla () {
+    public LogoutPage clickbtnYalla () {
         btnYalla.click();
-        return new LogoutPage(driver);
-        }
-
+        pause(3);
+        return  new LogoutPage(driver);
     }
 
+    public boolean isTextInElementPresent_LoginSuccess(){
+        return isTextInElementPresent(textPopUp_Login, "Logged in success");
+    }
+
+
+    public boolean isErrorEmailMessageDisplayed() {
+        //pause(3);
+        try {
+            if (errorMessage.isDisplayed()) {
+                pause(3);
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("NoSuchElementException");
+        }
+        try {
+            if (errorMessage1.isDisplayed()) {
+               return true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("NoSuchElementException");
+        }
+          return false;
+}
+
+    public boolean isErrorPasswordMessageDisplayed() {
+        //pause(3);
+        try {
+            if (errorMessage2.isDisplayed()) {
+                pause(3);
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("NoSuchElementException");
+        }
+
+        return false;
+    }
+
+
+    public LoginPage clickbtnYallaNegative() {
+        btnYalla.click();
+        return this;
+    }
+
+    public boolean isTextInElementPresent_LogIncorrect(){
+        return isTextInElementPresent(textPopUp_Login, "Login or Password incorrect");
+    }
+
+}

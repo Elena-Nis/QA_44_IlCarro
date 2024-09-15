@@ -21,16 +21,14 @@ public class HomePage extends BasePage {
     WebElement logIn;
 
 
-    public LoginPage clickSignUpLink() {
+    public RegistrationPage clickSignUpLink() {
         linkSignUp.click();
-        return new LoginPage(driver);
+        return new RegistrationPage(driver);
     }
 
-
-
-    public LoginPasswordEmail clickLoginPasswordEmail() {
+    public LoginPage clickBtnLogin() {
         logIn.click();
-        return new LoginPasswordEmail(driver);
+        return new LoginPage(driver);
     }
 
 }
