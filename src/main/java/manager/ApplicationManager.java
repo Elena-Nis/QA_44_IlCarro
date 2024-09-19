@@ -1,5 +1,6 @@
 package manager;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +16,7 @@ public class ApplicationManager {
     public void setUp(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        // driver.manage().window().setSize(new Dimension(1204, 768));
     }
 
     @AfterMethod

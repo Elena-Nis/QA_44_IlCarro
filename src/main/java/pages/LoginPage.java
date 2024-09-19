@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.NoSuchElementException;
+import dto.UserDto;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,101 +8,49 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class LoginPage extends BasePage {
-    public LoginPage (WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         setDriver(driver);
-        PageFactory.initElements(
-                new AjaxElementLocatorFactory(driver, 10), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(id = "email")
     WebElement inputEmail;
-
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(id = "password")
     WebElement inputPassword;
-
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnYalla;
-
     @FindBy(xpath = "//h2[@class='message']")
-    WebElement textPopUp_Login;
+    WebElement textPopUp_LoginSuccess;
+    @FindBy(xpath = "//input[@id='email']/..//div[@class='error']/div")
+    WebElement errorMessageInputEmail;
+    @FindBy(xpath = "//input[@id='password']/following-sibling::div[@class = 'error']")
+    WebElement errorMessageInputPassword;
 
-    @FindBy(xpath = "//div[contains(text(), 'not look like email')]")
-    WebElement errorMessage;
-
-    @FindBy(xpath = "//div[contains(text(), 'Email is required')]")
-    WebElement errorMessage1;
-
-    @FindBy(xpath = "//div[contains(text(), 'Password is required')]")
-    WebElement errorMessage2;
-
-    public LoginPage typeEmail(String email) {
-        if(inputEmail.isDisplayed()) {
-            inputEmail.clear();
-            inputEmail.sendKeys(email);
-        }
+    public LoginPage typeLoginForm(String email, String password) {
+        inputEmail.sendKeys(email);
+        inputPassword.sendKeys(password);
+        return this;
+    }
+    public LoginPage typeLoginForm(UserDto user) {
+        inputEmail.sendKeys(user.getEmail());
+        inputPassword.sendKeys(user.getPassword());
         return this;
     }
 
-    public  LoginPage typePassword(String password) {
-        if(inputPassword.isDisplayed()) {
-            inputPassword.sendKeys(password);
-        }
-        return this;
-    }
-
-    public LogoutPage clickbtnYalla () {
+    public LoginPage clickBtnYalla() {
+        pause(2);
         btnYalla.click();
-        pause(3);
-        return  new LogoutPage(driver);
+        return this;
     }
 
     public boolean isTextInElementPresent_LoginSuccess(){
-        return isTextInElementPresent(textPopUp_Login, "Logged in success");
+        return isTextInElementPresent(textPopUp_LoginSuccess, "Logged in success");
     }
-
-
-    public boolean isErrorEmailMessageDisplayed() {
-        //pause(3);
-        try {
-            if (errorMessage.isDisplayed()) {
-                pause(3);
-                return true;
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("NoSuchElementException");
-        }
-        try {
-            if (errorMessage1.isDisplayed()) {
-               return true;
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("NoSuchElementException");
-        }
-          return false;
-}
-
-    public boolean isErrorPasswordMessageDisplayed() {
-        //pause(3);
-        try {
-            if (errorMessage2.isDisplayed()) {
-                pause(3);
-                return true;
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("NoSuchElementException");
-        }
-
-        return false;
+    public boolean isTextInElementPresent_ErrorEmail(String text){
+        return isTextInElementPresent(errorMessageInputEmail, text);
     }
-
-
-    public LoginPage clickbtnYallaNegative() {
-        btnYalla.click();
-        return this;
-    }
-
-    public boolean isTextInElementPresent_LogIncorrect(){
-        return isTextInElementPresent(textPopUp_Login, "Login or Password incorrect");
+    public boolean isTextInElementPresent_ErrorPasswordEmpty(String text){
+        return isTextInElementPresent(errorMessageInputPassword, text);
     }
 
 }

@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import dto.UserDto;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,76 +9,65 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class RegistrationPage extends BasePage {
-    public RegistrationPage (WebDriver driver) {
+    public RegistrationPage(WebDriver driver) {
         setDriver(driver);
-        PageFactory.initElements (new AjaxElementLocatorFactory(driver, 10), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
-    @FindBy(xpath = "//input[@id='name']")
+    @FindBy(id = "name")
     WebElement inputName;
-
-    @FindBy(xpath = "//input[@id='lastName']")
+    @FindBy(id = "lastName")
     WebElement inputLastName;
-
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(id = "email")
     WebElement inputEmail;
-
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(id = "password")
     WebElement inputPassword;
-
-   @FindBy(xpath = "//label[@for='terms-of-use']")
-   WebElement inputCheckBox;
-
+    @FindBy(xpath = "//label[@for='terms-of-use']")
+    WebElement checkBox;
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnYalla;
+    @FindBy(xpath = "//h2[@class='message']")
+    WebElement textPopUp_regSuccess;
+    @FindBy(xpath = "//input[@id='email']/following-sibling::div[@class = 'error']//div[1]")
+    WebElement errorMessageInputEmail;
 
-    public RegistrationPage typeName(String name) {
-        if(inputName.isDisplayed()) {
-            inputName.sendKeys(name);
-        }
+
+    public RegistrationPage typeRegistrationForm(String name, String lastName, String email, String password) {
+        inputName.sendKeys(name);
+        inputLastName.sendKeys(lastName);
+        inputEmail.sendKeys(email);
+        inputPassword.sendKeys(password);
         return this;
     }
 
-    public RegistrationPage typeLastName(String lastName) {
-        if(inputLastName.isDisplayed()) {
-            inputLastName.sendKeys(lastName);
-        }
-        return this;
-    }
-
-    public RegistrationPage typeEmail(String email) {
-        if(inputEmail.isDisplayed()) {
-            inputEmail.sendKeys(email);
-        }
-        return this;
-    }
-
-    public RegistrationPage typePassword(String password) {
-        if(inputEmail.isDisplayed()) {
-            inputPassword.sendKeys(password);
-        }
+    public RegistrationPage typeRegistrationForm(UserDto user) {
+        inputEmail.sendKeys(user.getName());
+        inputName.sendKeys(user.getLastName());
+        inputLastName.sendKeys(user.getEmail());
+        inputPassword.sendKeys(user.getPassword());
         return this;
     }
 
     public RegistrationPage clickCheckBox() {
-        System.out.println(inputCheckBox.getRect().getWidth() +" X "+inputCheckBox.getRect().getHeight());
-        int width= inputCheckBox.getRect().getWidth();
-        int height = inputCheckBox.getRect().getHeight();
+        //checkBox.click();
+        System.out.println(checkBox.getRect().getWidth() + " X " + checkBox.getRect().getHeight());
+        int width = checkBox.getRect().getWidth();
+        int height = checkBox.getRect().getHeight();
         Actions actions = new Actions(driver);
-        actions.moveToElement(inputCheckBox, -width/4, -height/4).click().perform();
+        actions.moveToElement(checkBox, -width / 4, -height / 4).click().perform();
         return this;
     }
 
-//    public RegistrationPage clickCheckBox () {
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();",inputCheckBox);
-//        return this;
-//        }
-
-        public LogoutPage clickbtnYalla () {
+    public RegistrationPage clickBtnYalla() {
         btnYalla.click();
-        return new LogoutPage(driver);
-        }
-
+        return this;
     }
 
+    public boolean isTextInElementPresent_regSuccess() {
+        return isTextInElementPresent(textPopUp_regSuccess, "You are logged in success");
+    }
+
+    public boolean isTextInElementPresent_ErrorEmail(String text) {
+        return isTextInElementPresent(errorMessageInputEmail, text);
+    }
+}
