@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative tests Login_Enum Registration_Enum">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/LetCarDtoLombok.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/CarAddPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/FuelType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Prius.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/LetTheCarWorkTests.java" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Positive Test Add Car">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dataProvider/DPLetTheCarWork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Astra.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/addNewCar.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/LetCarDtoLombok.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/LetTheCarDtoLombok.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/LetTheCarWorkPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LetTheCarWorkPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LetTheCarWorkTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LetTheCarWorkTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,34 +55,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TestNG.HomeTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.HomeTests.firstTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LetTheCarWorkTests.addNewCarPositiveTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LetTheCarWorkTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginPasswordEmailTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginPasswordEmailTests.loginPasEmailTestPositive.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginEmailTestNegative.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginNegativeTest_wrongPasswordEmpty_Enum.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginPasswordTestNegative.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginPositiveTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginTestNegative.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginTests.loginTestPositive.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.RegistrationTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.RegistrationTests.registrationNegativeTest_wrongEmailWOAt_Enum.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.RegistrationTests.registrationTestPositive.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/e4887/Documents_Auto/GitHub/Qa44_DemoQa&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.HomeTests.executor": "Run",
+    "TestNG.HomeTests.firstTest.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTest.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTestDP.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTestDPFile.executor": "Run",
+    "TestNG.LetTheCarWorkTests.executor": "Run",
+    "TestNG.LoginPasswordEmailTests.executor": "Run",
+    "TestNG.LoginPasswordEmailTests.loginPasEmailTestPositive.executor": "Run",
+    "TestNG.LoginTests.executor": "Run",
+    "TestNG.LoginTests.loginEmailTestNegative.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongPasswordEmpty_Enum.executor": "Run",
+    "TestNG.LoginTests.loginPasswordTestNegative.executor": "Run",
+    "TestNG.LoginTests.loginPositiveTest.executor": "Run",
+    "TestNG.LoginTests.loginTestNegative.executor": "Run",
+    "TestNG.LoginTests.loginTestPositive.executor": "Run",
+    "TestNG.RegistrationTests.executor": "Run",
+    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
+    "TestNG.RegistrationTests.registrationTestPositive.executor": "Run",
+    "git-widget-placeholder": "#2 on main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/Qa44_DemoQa"
   }
-}</component>
-  <component name="RunManager" selected="TestNG.LetTheCarWorkTests">
+}]]></component>
+  <component name="RunManager" selected="TestNG.LetTheCarWorkTests.addNewCarPositiveTestDPFile">
     <configuration name="LetTheCarWorkTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
@@ -120,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongEmailWOAt_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LetTheCarWorkTests.addNewCarPositiveTestDP" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -129,8 +129,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailWOAt_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.LetTheCarWorkTests" />
+      <option name="METHOD_NAME" value="addNewCarPositiveTestDP" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -138,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongPasswordEmpty_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LetTheCarWorkTests.addNewCarPositiveTestDPFile" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -147,8 +147,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongPasswordEmpty_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.LetTheCarWorkTests" />
+      <option name="METHOD_NAME" value="addNewCarPositiveTestDPFile" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LetTheCarWorkTests" />
+        <item itemvalue="TestNG.LetTheCarWorkTests.addNewCarPositiveTestDPFile" />
+        <item itemvalue="TestNG.LetTheCarWorkTests.addNewCarPositiveTestDP" />
         <item itemvalue="TestNG.LetTheCarWorkTests.addNewCarPositiveTest" />
+        <item itemvalue="TestNG.LetTheCarWorkTests" />
         <item itemvalue="TestNG.RegistrationTests.registrationNegativeTest_wrongEmailWOAt_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongPasswordEmpty_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +241,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726709165435</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Positive Test Add Car">
+      <option name="closed" value="true" />
+      <created>1727031537408</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727031537408</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Positive Test Add Car">
+      <option name="closed" value="true" />
+      <created>1727172935192</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727172935192</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -250,7 +266,8 @@
     <MESSAGE value="IlCarro Registration + Login + Assert" />
     <MESSAGE value="Negative tests Login" />
     <MESSAGE value="Negative tests Login_Enum Registration_Enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Negative tests Login_Enum Registration_Enum" />
+    <MESSAGE value="Positive Test Add Car" />
+    <option name="LAST_COMMIT_MESSAGE" value="Positive Test Add Car" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

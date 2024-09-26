@@ -1,6 +1,7 @@
 package tests;
 
-import dto.LetCarDtoLombok;
+import dataProvider.DPLetTheCarWork;
+import dto.LetTheCarDtoLombok;
 import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
@@ -11,8 +12,6 @@ import pages.LetTheCarWorkPage;
 import pages.LoginPage;
 import utils.FuelType;
 import utils.HeaderMenuItem;
-
-import java.util.Random;
 
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.*;
@@ -33,16 +32,16 @@ public class LetTheCarWorkTests extends ApplicationManager {
         @Test
         public void addNewCarPositiveTest() {
 
-        LetCarDtoLombok car = LetCarDtoLombok.builder()
+        LetTheCarDtoLombok car = LetTheCarDtoLombok.builder()
         .city("Tel ")
         .manufacture("Toyota")
         .model("Prius.jpg")
         .year("2019")
         .fuel(FuelType.PETROL.getValue())
-        .seats("5")
+        .seats(5)
         .carClass("C-class")
-        .carRegNumber(generateNumber(12))
-        .price("1000")
+        .serialNumber(generateNumber(12))
+        .price(1000)
         .about(generateString(20))
         .carPhotoPath("Prius.jpg")
         .build();
@@ -57,6 +56,29 @@ public class LetTheCarWorkTests extends ApplicationManager {
 
 
     }
+//***********************************************************************************
+//***********************************************************************************
 
+    @Test(dataProvider = "addNewCarDP", dataProviderClass = DPLetTheCarWork.class)
+    public void addNewCarPositiveTestDP (LetTheCarDtoLombok car) {
+        System.out.println("--> " + car);
+        Assert.assertTrue (letTheCarWorkPage.fillCarCityForm(car)
+                .fillCarContinueForm(car)
+                .loadCarPhoto(car)
+                .clickBtnSubmitCarPositive()
+                .isTextInElementPresentSuccessful())
+        ;
+    }
+
+    @Test(dataProvider = "addNewCarDPFile", dataProviderClass = DPLetTheCarWork.class)
+    public void addNewCarPositiveTestDPFile (LetTheCarDtoLombok car) {
+        System.out.println("--> " + car);
+        Assert.assertTrue (letTheCarWorkPage.fillCarCityForm(car)
+                .fillCarContinueForm(car)
+                .loadCarPhoto(car)
+                .clickBtnSubmitCarPositive()
+                .isTextInElementPresentSuccessful())
+        ;
+    }
 }
 

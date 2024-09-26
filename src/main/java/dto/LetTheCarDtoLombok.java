@@ -9,16 +9,16 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class LetCarDtoLombok {
+public class LetTheCarDtoLombok {
     private String city;
     private String manufacture;
     private String model;
     private String year;
     private String fuel;
-    private String seats;
+    private int seats;
     private String carClass;
-    private String carRegNumber;
-    private String price;
+    private String serialNumber;
+    private int price;
     private String about;
     private String carPhotoPath;
 }

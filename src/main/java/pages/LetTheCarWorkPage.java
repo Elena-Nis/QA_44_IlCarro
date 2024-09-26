@@ -1,7 +1,6 @@
 package pages;
 
-import dto.LetCarDtoLombok;
-import org.openqa.selenium.JavascriptExecutor;
+import dto.LetTheCarDtoLombok;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,28 +48,28 @@ public class LetTheCarWorkPage extends BasePage{
     @FindBy(xpath = "//button[@type='button'][3]")
     WebElement showCar;
 
-    public LetTheCarWorkPage fillCarCityForm (LetCarDtoLombok car) {
+    public LetTheCarWorkPage fillCarCityForm (LetTheCarDtoLombok car) {
         inputCity.sendKeys(car.getCity());
         inputCityInList.click();
         return this;
     }
 
 
-    public LetTheCarWorkPage fillCarContinueForm (LetCarDtoLombok car) {
+    public LetTheCarWorkPage fillCarContinueForm (LetTheCarDtoLombok car) {
         inputManufacture.sendKeys(car.getManufacture());
         inputModel.sendKeys(car.getModel());
         inputYear.sendKeys(car.getYear());
         inputFuel.sendKeys(car.getFuel());
-        inputSeats.sendKeys(car.getSeats());
+        inputSeats.sendKeys(String.valueOf(car.getSeats()));
         inputCarClass.sendKeys(car.getCarClass());
-        inputCarRegNumber.sendKeys(car.getCarRegNumber());
-        inputPrice.sendKeys(car.getPrice());
+        inputCarRegNumber.sendKeys(car.getSerialNumber());
+        inputPrice.sendKeys(String.valueOf(car.getPrice()));
         inputAbout.sendKeys(car.getAbout());
         return this;
 
     }
 
-    public LetTheCarWorkPage loadCarPhoto (LetCarDtoLombok car) {
+    public LetTheCarWorkPage loadCarPhoto (LetTheCarDtoLombok car) {
     // inputPathPhoto.sendKeys("C:\\Users\\e4887\\Documents_Auto\\GitHub\\QA_44_IlCarro\\src\\main\\resources\\Prius.jpg");
     String fileName = car.getCarPhotoPath();
     Path relativePath = Paths.get("src/main/resources/"+fileName);
@@ -86,7 +85,11 @@ public class LetTheCarWorkPage extends BasePage{
     }
 
     public boolean  isTextInElementPresentSuccessful() {
-        return isTextInElementPresent(carAddedMessage, "Toyota Prius.jpg added successful");
+        return isTextInElementPresent(carAddedMessage, "Toyota Prius.jpg added successful")
+                || isTextInElementPresent(carAddedMessage, "Toyota Prius added successful")
+                || isTextInElementPresent(carAddedMessage, "Opel Astra added successful")
+                ||  isTextInElementPresent(carAddedMessage, "Opel Astra.jpg added successful")
+                ;
     }
 
     public CarAddPage clickShowCar () {
