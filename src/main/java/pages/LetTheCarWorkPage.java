@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-public class LetTheCarWorkPage extends BasePage{
+public class LetTheCarWorkPage extends BasePage {
     public LetTheCarWorkPage(WebDriver driver) {
         setDriver(driver);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
@@ -47,15 +47,22 @@ public class LetTheCarWorkPage extends BasePage{
     WebElement carAddedMessage;
     @FindBy(xpath = "//button[@type='button'][3]")
     WebElement showCar;
+    @FindBy(xpath = "//button[@type='submit' and @disabled]")
+    WebElement errorElement;
 
-    public LetTheCarWorkPage fillCarCityForm (LetTheCarDtoLombok car) {
-        inputCity.sendKeys(car.getCity());
-        inputCityInList.click();
+    public LetTheCarWorkPage fillCarCityForm(LetTheCarDtoLombok car) {
+        if (car.getCity() == "") {
+            inputCity.click();
+            inputManufacture.click();
+        } else {
+            inputCity.sendKeys(car.getCity());
+            inputCityInList.click();
+        }
         return this;
     }
 
 
-    public LetTheCarWorkPage fillCarContinueForm (LetTheCarDtoLombok car) {
+    public LetTheCarWorkPage fillCarContinueForm(LetTheCarDtoLombok car) {
         inputManufacture.sendKeys(car.getManufacture());
         inputModel.sendKeys(car.getModel());
         inputYear.sendKeys(car.getYear());
@@ -69,32 +76,39 @@ public class LetTheCarWorkPage extends BasePage{
 
     }
 
-    public LetTheCarWorkPage loadCarPhoto (LetTheCarDtoLombok car) {
-    // inputPathPhoto.sendKeys("C:\\Users\\e4887\\Documents_Auto\\GitHub\\QA_44_IlCarro\\src\\main\\resources\\Prius.jpg");
-    String fileName = car.getCarPhotoPath();
-    Path relativePath = Paths.get("src/main/resources/"+fileName);
-    String absolutePath = relativePath.toAbsolutePath().toString();
-    inputPathPhoto.sendKeys(absolutePath);
-    return this;
+    public LetTheCarWorkPage loadCarPhoto(LetTheCarDtoLombok car) {
+        // inputPathPhoto.sendKeys("C:\\Users\\e4887\\Documents_Auto\\GitHub\\QA_44_IlCarro\\src\\main\\resources\\Prius.jpg");
+        String fileName = car.getCarPhotoPath();
+        Path relativePath = Paths.get("src/main/resources/" + fileName);
+        String absolutePath = relativePath.toAbsolutePath().toString();
+        inputPathPhoto.sendKeys(absolutePath);
+        return this;
     }
 
-    public LetTheCarWorkPage clickBtnSubmitCarPositive(){
+    public LetTheCarWorkPage clickBtnSubmitCarPositive() {
         pause(5);
         btnSubmitCarPositive.click();
         return this;
     }
 
-    public boolean  isTextInElementPresentSuccessful() {
+    public boolean isTextInElementPresentSuccessful() {
         return isTextInElementPresent(carAddedMessage, "Toyota Prius.jpg added successful")
                 || isTextInElementPresent(carAddedMessage, "Toyota Prius added successful")
                 || isTextInElementPresent(carAddedMessage, "Opel Astra added successful")
-                ||  isTextInElementPresent(carAddedMessage, "Opel Astra.jpg added successful")
+                || isTextInElementPresent(carAddedMessage, "Opel Astra.jpg added successful")
                 ;
     }
 
-    public CarAddPage clickShowCar () {
-        pause(3);
+    public CarAddPage clickShowCar() {
+        pause(5);
         showCar.click();
         return new CarAddPage(driver);
     }
+
+    public boolean isTextInElementPresentNegative() {
+        boolean btnIsDisplayed = errorElement.isDisplayed();
+        return btnIsDisplayed;
+
+    }
+
 }

@@ -3,33 +3,37 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.HeaderMenuItem;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BasePage {
     static WebDriver driver;
-    public static void setDriver(WebDriver wd){
+
+    public static void setDriver(WebDriver wd) {
         driver = wd;
     }
 
-    public void pause(int time){
+    public void pause(int time) {
         try {
-            Thread.sleep(time*1000L);
+            Thread.sleep(time * 1000L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public boolean  isTextInElementPresent(WebElement element, String text){
+    public boolean isTextInElementPresent(WebElement element, String text) {
         return element.getText().contains(text);
     }
 
-    public static <T extends BasePage> T clickButtonsOnHeader(HeaderMenuItem headerMenuItem){
-        WebElement element  = driver.findElement(By.xpath(headerMenuItem.getLocator()));
+    public static <T extends BasePage> T clickButtonsOnHeader(HeaderMenuItem headerMenuItem) {
+        WebElement element = driver.findElement(By.xpath(headerMenuItem.getLocator()));
         element.click();
-        switch (headerMenuItem){
+        switch (headerMenuItem) {
             case LOGIN:
                 return (T) new LoginPage(driver);
             case SIGN_UP:
@@ -43,5 +47,15 @@ public class BasePage {
             default:
                 throw new IllegalArgumentException("invalid parametr headerMenuItem");
         }
+    }
+
+    public void clickWait(WebElement element, int time) {
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public void clickWait(By locator, int time) {
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 }
