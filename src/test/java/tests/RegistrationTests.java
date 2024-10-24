@@ -3,15 +3,19 @@ package tests;
 import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegistrationPage;
 import utils.HeaderMenuItem;
+import utils.TestNGListener;
 
 import java.util.Random;
 
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.generateString;
+
+@Listeners(TestNGListener.class)
 
 public class RegistrationTests extends ApplicationManager {
 

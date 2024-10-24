@@ -1,20 +1,30 @@
 package tests;
 
 import dto.UserDto;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import manager.ApplicationManager;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.HeaderMenuItem;
+import utils.TestNGListener;
 
 import static utils.RandomUtils.*;
 import static pages.BasePage.clickButtonsOnHeader;
 
+@Listeners(TestNGListener.class)
+
 public class LoginTests extends ApplicationManager {
 
+    @Description("loginPositiveMethod")
+    @Owner("QA Elena")
     @Test
     public void loginPositiveTest() {
+        Allure.step("fill loginForm");
         Assert.assertTrue(new HomePage(getDriver())
                 .clickBtnLogin()
                 .typeLoginForm("alexmed123@gmail.com", "Qwerty123!")

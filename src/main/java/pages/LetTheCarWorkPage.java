@@ -49,6 +49,11 @@ public class LetTheCarWorkPage extends BasePage {
     WebElement showCar;
     @FindBy(xpath = "//button[@type='submit' and @disabled]")
     WebElement errorElement;
+    @FindBy(xpath = "//div[@class='error']")
+    WebElement errorWrongAddressManufacture;
+    @FindBy(xpath = "//div[@class='error']/div")
+    WebElement errorWrongRegNumber;
+
 
     public LetTheCarWorkPage fillCarCityForm(LetTheCarDtoLombok car) {
         if (car.getCity() == "") {
@@ -106,8 +111,13 @@ public class LetTheCarWorkPage extends BasePage {
     }
 
     public boolean isTextInElementPresentNegative() {
-        boolean btnIsDisplayed = errorElement.isDisplayed();
-        return btnIsDisplayed;
+        String expectedText = errorWrongAddressManufacture.getText();
+        return (expectedText.trim().contains("Wrong address") ||
+                expectedText.trim().contains("Make is required") ||
+                errorWrongRegNumber.getText().trim().contains("Car registration number is required")) &&
+                errorElement.isDisplayed()
+                ;
+
 
     }
 

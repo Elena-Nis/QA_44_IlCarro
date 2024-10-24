@@ -7,17 +7,21 @@ import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LetTheCarWorkPage;
 import pages.LoginPage;
 import utils.FuelType;
 import utils.HeaderMenuItem;
+import utils.TestNGListener;
 
 import java.lang.reflect.Method;
 
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.*;
+
+@Listeners(TestNGListener.class)
 
 public class LetTheCarWorkTests extends ApplicationManager {
 
