@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="IlCarro Registration + Login + Assert">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative Tests Add Car with DataProvider and logger">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TakeScreenShot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TestNGListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/WDListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/SearchCarTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPasswordEmail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginPasswordEmailTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LetTheCarWorkPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LetTheCarWorkPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/HomeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/HomeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LetTheCarWorkTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LetTheCarWorkTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -58,25 +66,45 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.QA44_iLCarro [clean].executor": "Run",
+    "Maven.QA44_iLCarro [compile].executor": "Run",
+    "Maven.QA_44_IlCarro [clean].executor": "Run",
+    "Maven.QA_44_IlCarro [compile].executor": "Run",
+    "Maven.QA_44_IlCarro [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TestNG.HomeTests.executor": "Run",
     "TestNG.HomeTests.firstTest.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarNegativeTestDP.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTest.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTestDP.executor": "Run",
+    "TestNG.LetTheCarWorkTests.addNewCarPositiveTestDPFile.executor": "Run",
+    "TestNG.LetTheCarWorkTests.executor": "Run",
     "TestNG.LoginPasswordEmailTests.executor": "Run",
     "TestNG.LoginPasswordEmailTests.loginPasEmailTestPositive.executor": "Run",
     "TestNG.LoginTests.executor": "Run",
     "TestNG.LoginTests.loginEmailTestNegative.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
+    "TestNG.LoginTests.loginNegativeTest_wrongPasswordEmpty_Enum.executor": "Run",
     "TestNG.LoginTests.loginPasswordTestNegative.executor": "Run",
+    "TestNG.LoginTests.loginPositiveTest.executor": "Run",
     "TestNG.LoginTests.loginTestNegative.executor": "Run",
     "TestNG.LoginTests.loginTestPositive.executor": "Run",
     "TestNG.RegistrationTests.executor": "Run",
-    "git-widget-placeholder": "main",
+    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
+    "TestNG.RegistrationTests.registrationTestPositive.executor": "Run",
+    "TestNG.SearchCarTests.searchCarNegativeTest_wrongDate.executor": "Run",
+    "TestNG.SearchCarTests.searchCarPositiveTest.executor": "Run",
+    "TestNG.SearchCarTests.searchCarPositiveTestWithoutCalendar.executor": "Run",
+    "git-widget-placeholder": "#2 on main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/Qa44_DemoQa"
+    "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.LoginTests.loginEmailTestNegative">
-    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.SearchCarTests.searchCarPositiveTestWithoutCalendar">
+    <configuration name="LoginTests.loginNegativeTest_wrongEmailWOAt" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -86,24 +114,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.loginEmailTestNegative" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA_44_IlCarro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginEmailTestNegative" />
+      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailWOAt" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -111,7 +122,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginPasswordTestNegative" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.loginPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -121,7 +132,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginPasswordTestNegative" />
+      <option name="METHOD_NAME" value="loginPositiveTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -129,7 +140,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginTestNegative" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchCarTests.searchCarNegativeTest_wrongDate" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -138,8 +149,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginTestNegative" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchCarTests" />
+      <option name="METHOD_NAME" value="searchCarNegativeTest_wrongDate" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -147,7 +158,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchCarTests.searchCarPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_IlCarro" />
       <extension name="coverage">
         <pattern>
@@ -156,8 +167,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RegistrationTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchCarTests" />
+      <option name="METHOD_NAME" value="searchCarPositiveTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchCarTests.searchCarPositiveTestWithoutCalendar" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA_44_IlCarro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchCarTests" />
+      <option name="METHOD_NAME" value="searchCarPositiveTestWithoutCalendar" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -166,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTests.loginEmailTestNegative" />
-        <item itemvalue="TestNG.LoginTests.loginPasswordTestNegative" />
-        <item itemvalue="TestNG.LoginTests.loginTestNegative" />
-        <item itemvalue="TestNG.RegistrationTests" />
-        <item itemvalue="TestNG.LoginTests" />
+        <item itemvalue="TestNG.SearchCarTests.searchCarPositiveTestWithoutCalendar" />
+        <item itemvalue="TestNG.SearchCarTests.searchCarNegativeTest_wrongDate" />
+        <item itemvalue="TestNG.SearchCarTests.searchCarPositiveTest" />
+        <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
+        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt" />
       </list>
     </recent_temporary>
   </component>
@@ -215,13 +245,77 @@
       <option name="project" value="LOCAL" />
       <updated>1726174566800</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Negative tests Login">
+      <option name="closed" value="true" />
+      <created>1726360730264</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726360730264</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Negative tests Login_Enum Registration_Enum">
+      <option name="closed" value="true" />
+      <created>1726709165435</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726709165435</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Positive Test Add Car">
+      <option name="closed" value="true" />
+      <created>1727031537408</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727031537408</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Positive Test Add Car">
+      <option name="closed" value="true" />
+      <created>1727172935192</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727172935192</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Positive Test Add Car with DataProvider">
+      <option name="closed" value="true" />
+      <created>1727351906501</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727351906501</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Negative Tests Add Car with DataProvider and logger">
+      <option name="closed" value="true" />
+      <created>1727703566564</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727703566564</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="IlCarro Structure" />
     <MESSAGE value="IlCarro Registration" />
     <MESSAGE value="IlCarro Registration + Login + Assert" />
-    <option name="LAST_COMMIT_MESSAGE" value="IlCarro Registration + Login + Assert" />
+    <MESSAGE value="Negative tests Login" />
+    <MESSAGE value="Negative tests Login_Enum Registration_Enum" />
+    <MESSAGE value="Positive Test Add Car" />
+    <MESSAGE value="Positive Test Add Car with DataProvider" />
+    <MESSAGE value="Negative Tests Add Car with DataProvider and logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Negative Tests Add Car with DataProvider and logger" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/utils/RandomUtils.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
