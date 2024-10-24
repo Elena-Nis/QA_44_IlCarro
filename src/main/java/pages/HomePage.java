@@ -11,14 +11,18 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertiesReader;
 
+import java.net.URL;
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
 
 public class HomePage extends BasePage{
     public HomePage(WebDriver driver){
         setDriver(driver);
-        driver.get("https://ilcarro.web.app/search");
+        String url = PropertiesReader.getProperty("data.properties", "URL");
+      //  driver.get("https://ilcarro.web.app/search");
+        driver.get(url);
         logger.info("URL  --------------------> " + driver.getCurrentUrl());
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }

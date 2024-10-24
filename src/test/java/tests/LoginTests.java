@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.HeaderMenuItem;
+import utils.PropertiesReader;
+import utils.RetryAnalyzer;
 import utils.TestNGListener;
 
 import static utils.RandomUtils.*;
@@ -32,6 +34,35 @@ public class LoginTests extends ApplicationManager {
                 .isTextInElementPresent_LoginSuccess())
         ;
     }
+
+    @Description("loginPositiveMethodProperties")
+    @Owner("Elena Nisnevich")
+    @Test
+    public void loginPositiveTestProperties () {
+        Allure.step("Fill loginForm from file.properties");
+        String email = PropertiesReader.getProperty("data.properties", "email");
+        String password = PropertiesReader.getProperty("data.properties", "password");
+        Assert.assertTrue(new HomePage(getDriver())
+                .clickBtnLogin()
+                .typeLoginForm(email, password)
+                .clickBtnYalla()
+                .isTextInElementPresent_LoginSuccess())
+        ;
+    }
+
+    @Description("loginTestRetryAnalyzer")
+    @Owner("Elena Nisnevich")
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void loginTestRetryAnalyzer () {
+        Allure.step("Login Test with RetryAnalyzer");
+        Assert.assertTrue(new HomePage(getDriver())
+                .clickBtnLogin()
+                .typeLoginForm("alexmed123gmail.com", "Qwerty123!")
+                .clickBtnYalla()
+                .isTextInElementPresent_LoginSuccess())
+        ;
+    }
+
 
     @Test
     public void loginNegativeTest_wrongEmailWOAt() {
